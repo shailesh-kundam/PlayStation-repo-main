@@ -1,0 +1,128 @@
+/* General styles for the calendar container, setting maximum and minimum widths, centering it within its parent, and setting the default font. */
+.calendar {
+  max-width: 908px;
+  min-width: 600px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Styles for the navigation of the calendar including spacing and alignment of items. */
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: solid 1px black;
+}
+
+/* Setting the font size for the heading (h1) within the calendar navigation. */
+.calendar-nav h1 {
+  font-size: 1.5em;
+}
+
+/* Defining the layout for day headers using CSS Grid to have 7 columns representing each day of the week. */
+.day-header-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* Style for individual day headers, making the text bold and centered. */
+.day-header {
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+/* CSS Grid layout for the calendar grid with 7 columns and a gap between the cells. */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+}
+
+/* Styles for individual day cells within the calendar, including background color and box shadow for depth. */
+.day-cell {
+  position: relative;
+  height: 100px;
+  padding: 0; /* Remove padding if any */
+  background-color: #fff;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Positioning and styling for the day number within each day cell. */
+.day-number {
+  position: absolute;
+  z-index: 10;
+  top: 5px;
+  right: 10px;
+  font-weight: bold;
+}
+
+/* Style for images within a day cell, ensuring they fill the cell and are horizontally centered. */
+.game-image {
+  max-width: 100%;
+  height: 100%;
+}
+
+/* Disabled state for day cells that are not active or selectable. */
+.day-cell.disabled {
+  background-color: #fff;
+  box-shadow: none;
+  color: #d0d0d0;
+}
+
+/* Wrapper for images to make the entire area clickable and visually interactive. */
+.image-wrapper {
+  height: 100%;
+  cursor: pointer;
+
+  /* Special styling for the day number when it is inside an image wrapper, for better visibility. */
+  .day-number{
+    background-color: #09a9ec;
+    border-radius: 13px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+}
+
+/* Using display contents to allow children of .week-row to lay out as if they were direct children of the grid. */
+.week-row {
+  display: contents;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+/* Style for the row containing game details, spanning the entire width of the grid. */
+.game-details-row {
+  display: flex;
+  grid-column: 1 / -1; 
+  background-color: #f1f1f1;
+}
+
+/* Style for the image shown in the game details row. */
+.game-details-image{
+  width: 100%;
+  height: 350px;
+}
+
+.arrow {
+  display: inline-block;
+  margin-right: 30px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  cursor: pointer;
+}
+.right-arrow {
+  transform: rotate(-135deg);
+}
+
+.left-arrow {
+  transform: rotate(45deg);
+}
